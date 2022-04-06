@@ -1,8 +1,9 @@
 class Carta:
 
-    def __init__(self, numero, naipe):
+    def __init__(self, numero, naipe, cor):
         self.__numero = numero
         self.__naipe = naipe
+        self.__cor = cor
 
 
     def __str__(self):
