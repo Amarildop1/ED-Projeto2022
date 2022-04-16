@@ -1,8 +1,10 @@
 from Carta import Carta
+import random
 
 class BaralhoException(Exception):
     def __init__(self, msg):
         super().__init__(msg)
+
 
 class Baralho:
     def __init__(self):
@@ -19,11 +21,13 @@ class Baralho:
     def __len__(self):
         return len(self.baralho)
 
+
     def temCarta(self):
         if len(self.baralho) > 0:
             return True
         else:
             return False
+
 
     def retirarCarta(self)->Carta:
         try:
@@ -31,13 +35,15 @@ class Baralho:
         except IndexError :
             raise BaralhoException('O baralho está vazio. Não há cartas para retirar')
 
+
     def embaralhar(self):
-        pass
+        embaralhado = random.shuffle(self.baralho)
+        return embaralhado
+
 
     def __str__(self):
         saida = ''
         for carta in self.baralho:
             saida += carta.__str__() + '\n' 
         return saida
-
 
