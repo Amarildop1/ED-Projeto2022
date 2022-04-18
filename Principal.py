@@ -12,13 +12,13 @@ if __name__ == "__main__":
         As cartas devem estar embaralhadas antes da distribuição.
     """
 
-    print("\n - - - - - - - - INICIO DO JOGO - - - - - - - - \n")
+    print("\n * * * * * * * * * * * * INICIO DO JOGO * * * * * * * * * * * * \n")
 
     # Criando a Batalha/Mesa
     batalha1 = Batalha()
 
     # Total de cartas antes da distribuição
-    print(f'{batalha1.imprimirTotalDeCartas()}\n')
+    print(f'TOTAL DE CARTAS DO JOGO: {batalha1.imprimirTotalDeCartas()}\n')
 
 
     # Definindo os 2 Jogadores
@@ -35,28 +35,27 @@ if __name__ == "__main__":
     print(f'\n{play1}')
     print(f'\n{play2}')
 
-
     # # # # # # ATÉ AQUI OK # # # # # #
 
-    #################################################################
-    print(" * * * * * * * * * * ATE AQUI TA OK * * * * * * * * * * \n") ################
-    #################################################################
+    ###########################################################################
+    print(" ####################  ATE AQUI TA OK  #################### \n") #############
+    ###########################################################################
 
 
-
+    # Se passar de 26 vai mostrar a exceção de pilha vazia
     ######################################################
     for cont in range(5):
         batalha1.setRodada(cont + 1)
-        print(f'. . . . . . . . . . . . . RODADA {batalha1.getRodada()}: . . . . . . . . . . . . .')
+        print(f'- - - - - - - - - - - - - - - RODADA {batalha1.getRodada()}: - - - - - - - - - - - - - - -\n')
 
         # Mostrando a quantidade de cartas na mão do jogador
-        print(f'Cartas na mao de play1: {play1.getQtdeCartasNaMao()}')
-        print(f'Cartas na mao de play2: {play2.getQtdeCartasNaMao()}')
+        print(f'Cartas na mao de {play1.getNome()}: {play1.getQtdeCartasNaMao()}   xXx   Cartas na mao de {play2.getNome()}: {play2.getQtdeCartasNaMao()}')
+        #print(f'Cartas na mao de play2: {play2.getQtdeCartasNaMao()}')
 
         # Play1 e Play2 retiram as cartas
         play1Retirou = play1.puxarCarta()
         play2Retirou = play2.puxarCarta()
-        print(f'\nPlay1 tirou: {play1Retirou}   vs   Play2 tirou: {play2Retirou}')
+        print(f'\n{play1.getNome()} tirou: {play1Retirou}   vs   {play2.getNome()} tirou: {play2Retirou}')
 
 
         mesa = Pilha()
@@ -65,63 +64,45 @@ if __name__ == "__main__":
         #print(f'Cartas na mesa: {mesa}')
 
 
-
         #AINDA NÃO ESTÁ CERTO
         #AS VITÓRIAS NÃO ESTÃO SEMPRE OK
         def __cmp__(self, other):
             if( self.getNumero() > other.getNumero() ):
-                play1.conquistouAsCartas(mesa.desempilha())
-                play1.conquistouAsCartas(mesa.desempilha())
-                print(f'Conquistadas: {play1.pilhaDeCartasConquistadas}')
-                return "PLAY1 VENCE \o/ \n"
-            elif( self.getNumero() < other.getNumero() ):
-                play2.pilhaDeCartasConquistadas.empilha(mesa.desempilha())
-                play2.pilhaDeCartasConquistadas.empilha(mesa.desempilha())
-                return f'PLAY2 VENCE \o/ \n'
+                play1.conquistouUmaCarta(mesa.desempilha())
+                play1.conquistouUmaCarta(mesa.desempilha())
+                if not batalha1.cartasBloqueadasPeloEmpate.estaVazia():
+                    batalha1.distribuirCartasBloqueadas(play1)
+                    batalha1.distribuirCartasBloqueadas(play1)
+                return f'\n - - - - - - - -> \o/ {play1.getNome()} VENCEU \o/ <- - - - - - - -\n\n'
+            if( self.getNumero() < other.getNumero() ):
+                play2.conquistouUmaCarta(mesa.desempilha())
+                play2.conquistouUmaCarta(mesa.desempilha())
+                if not batalha1.cartasBloqueadasPeloEmpate.estaVazia():
+                    batalha1.distribuirCartasBloqueadas(play2)
+                    batalha1.distribuirCartasBloqueadas(play2)
+                return f'\n - - - - - - - -> \o/ {play2.getNome()} VENCEU \o/ <- - - - - - - -\n\n'
             else:
                 batalha1.cartasBloqueadasPeloEmpate.empilha(mesa.desempilha())
                 batalha1.cartasBloqueadasPeloEmpate.empilha(mesa.desempilha())
-                return f'EMPATE \n'
+                return f'\n\n @@ @@ @@ @@ @@ @@ EMPATE EMPATE EMPATE @@ @@ @@ @@ @@ @@ \n\n'
             # EM CASO DE EMPATE TEM QUE IR BLOQUEANDO AS CARTAS
-            # ASSIM QUE ALGUM PLAYER LANÇAR UMA CARTA E DESEMPATAR, 
-            # ELE RECEBERÁ AS CARTAS BLOQUEADAS E ADICIONA EMBAIXO DO SEU MONTE
-
+            # ASSIM QUE ALGUM PLAYER LANÇAR UMA CARTA E DESEMPATAR,
+            # ELE RECEBERÁ AS CARTAS BLOQUEADAS E ADICIONA EMBAIXO DO SEU MONTE.
 
         print(__cmp__(play1Retirou, play2Retirou))
 
-        print(f'Cartas Bloqueadas: {batalha1.imprimirCartasBloqueadas()}\n\n')
+        print(f'Cartas Bloqueadas: {batalha1.imprimirCartasBloqueadas()}\n')
 
-        print(f'. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n')
+        print(f'Cartas Conquistadas por {play1.getNome()}:\n {play1.pilhaDeCartasConquistadas}')
+        print(f'\nCartas Conquistadas por {play2.getNome()}:\n {play2.pilhaDeCartasConquistadas}')
 
-    
+        print(f'\nTotal de cartas de {play1.getNome()}: {play1.getTotalDeCartas()}')
+        print(f'Total de cartas de {play2.getNome()}: {play2.getTotalDeCartas()}')
+
+        print(f'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n')
+
+
     print(f'\n{play1}')
     print(f'\n{play2}')
     ######################################################
 
-
-
-
-    #DAQUI PRA BAIXO É TESTE
-    #A mesa vai ser uma pilha
-
-    """ # Play1 e Play2 retiram as cartas
-    play1Retirou = play1.puxarCarta()
-    play2Retirou = play2.puxarCarta()
-    print(f'Play1 tirou: {play1Retirou}   vs   Play2 tirou: {play2Retirou}\n')
-
-
-    #AINDA NÃO ESTÁ CERTO
-    #AS VITÓRIAS NÃO ESTÃO SEMPRE OK
-    def __cmp__(self, other):
-        if( self.getNumero() > other.getNumero() ): 
-            return "PLAY1 VENCE"
-        elif( self.getNumero() < other.getNumero() ): 
-            return "PLAY2 VENCE"
-
-        return "EMPATE"
-        # EM CASO DE EMPATE TEM QUE IR BLOQUEANDO AS CARTAS
-        # ASSIM QUE ALGUM PLAYER LANÇAR UMA CARTA E DESEMPATAR, 
-        # ELE RECEBERÁ AS CARTAS BLOQUEADAS E ADICIONA EMBAIXO DO SEU MONTE
-
-
-    print(__cmp__(play1Retirou, play2Retirou)) """

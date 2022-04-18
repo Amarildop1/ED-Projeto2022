@@ -30,12 +30,19 @@ class Batalha:
             carta = self.p.desempilha()
             jogador.receberCartas(carta)
 
-    
+
+    # Retorna o total de cartas
     def imprimirTotalDeCartas(self):
-        return f'TOTAL DE CARTAS: {self.p.tamanho()}'
-    
+        return f'{self.p.tamanho()}'
+
+
     def imprimirCartasBloqueadas(self):
         return f'{self.cartasBloqueadasPeloEmpate}'
+
+
+    def distribuirCartasBloqueadas(self, jogador):
+        jogador.conquistouUmaCarta(self.cartasBloqueadasPeloEmpate.desempilha())
+
 
     # Exibe o número da rodada
     def __str__(self):

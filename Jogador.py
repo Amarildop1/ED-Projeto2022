@@ -2,6 +2,7 @@ from PilhaEncadeada import Pilha
 
 class Jogador:
     cartasNaMao = 0
+    totalDeCartas = 0
 
     def __init__(self, nome):
         self.pilhaPlayer = Pilha()
@@ -17,20 +18,31 @@ class Jogador:
         return self.cartasNaMao
 
 
+    def getTotalDeCartas(self):
+        return self.totalDeCartas
+
+
     def puxarCarta(self):
         puxou = self.pilhaPlayer.desempilha()
         self.cartasNaMao -= 1
+        self.totalDeCartas -= 1
         return puxou
 
 
     def receberCartas(self, carta):
         self.pilhaPlayer.empilha(carta)
         self.cartasNaMao += 1
+        self.totalDeCartas += 1
 
 
-    def conquistouAsCartas(self, carta):
+    def conquistouUmaCarta(self, carta):
         self.pilhaDeCartasConquistadas.empilha(carta)
+        self.totalDeCartas += 1
+
+
+    def perdeuUmaCarta(self):
+        self.totalDeCartas -= 1
 
 
     def __str__(self):
-        return f'Jogador: {self.getNome()} \nCartas na Mao: \n{self.pilhaPlayer}\n \nConquistadas: {self.pilhaDeCartasConquistadas}\n'
+        return f'Jogador: {self.getNome()} \nTotal de cartas recebidas: {self.getTotalDeCartas()}\nCartas na Mao: \n{self.pilhaPlayer}\n \nConquistadas: {self.pilhaDeCartasConquistadas}\n'
