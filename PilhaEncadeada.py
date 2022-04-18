@@ -72,6 +72,16 @@ class Pilha:
         self.__head = novo
         self.__tamanho += 1
 
+    ############### TESTANDO ADICIONA NA BASE ###############
+
+    def adicionaNaBase(self, valor):
+        novo = Node(valor)
+        novo.prox = self.__head
+        self.__head = novo
+        self.__tamanho += 1
+
+    #########################################################
+
 
     def desempilha(self):
         if not self.estaVazia():
@@ -88,7 +98,7 @@ class Pilha:
     def __str__(self):
         cursor = self.__head
         primeiro = True
-        s = 'topo->['
+        s = 'topo-> ['
         while( cursor != None):
             if primeiro:
                 s += f'{cursor.dado}'
