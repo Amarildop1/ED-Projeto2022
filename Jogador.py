@@ -12,6 +12,9 @@ class Jogador:
 
     def getNome(self):
         return self.__nome
+    
+    def setNome(self, novoNome):
+        self.__nome = novoNome
 
 
     def getQtdeCartasNaMao(self):
@@ -45,4 +48,4 @@ class Jogador:
 
 
     def __str__(self):
-        return f'Jogador: {self.getNome()} \nTotal de cartas recebidas: {self.getTotalDeCartas()}\nCartas na Mao: \n{self.pilhaPlayer}\n \nConquistadas: {self.pilhaDeCartasConquistadas}\n'
+        return f'Jogador: {self.getNome()} \nTotal de cartas: {self.getTotalDeCartas()}\n\nCartas na Mao: \n{self.pilhaPlayer}\n \nCartas conquistadas: {self.pilhaDeCartasConquistadas}\n'

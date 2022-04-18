@@ -4,26 +4,27 @@ from PilhaEncadeada import Pilha
 from Jogador import Jogador
 from Batalha import Batalha
 
+# Definindo os 2 Jogadores
+play1 = Jogador("Player 1")
+play2 = Jogador("Player 2")
 
-if __name__ == "__main__":
-    """
-        Iniciar o jogo definindo os jogadores e 
-        sua mão de cartas. 
-        As cartas devem estar embaralhadas antes da distribuição.
-    """
 
+
+# FUNÇÃO INICIAR DAQUI PRA BAIXO | CHAMAR LÁ NO MENU
+def iniciarJogo():
     print("\n * * * * * * * * * * * * INICIO DO JOGO * * * * * * * * * * * * \n")
 
     # Criando a Batalha/Mesa
     batalha1 = Batalha()
+
 
     # Total de cartas antes da distribuição
     print(f'TOTAL DE CARTAS DO JOGO: {batalha1.imprimirTotalDeCartas()}\n')
 
 
     # Definindo os 2 Jogadores
-    play1 = Jogador("Amarildo")
-    play2 = Jogador("Joana")
+    #play1 = Jogador("Player 1")
+    #play2 = Jogador("Player 2")
 
     # Jogadores que estão na disputa
     print(f'Jogadores(as):  {play1.getNome()}  vs  {play2.getNome()}')
@@ -35,10 +36,9 @@ if __name__ == "__main__":
     print(f'\n{play1}')
     print(f'\n{play2}')
 
-    # # # # # # ATÉ AQUI OK # # # # # #
 
     ###########################################################################
-    print(" ####################  ATE AQUI TA OK  #################### \n") #############
+    print(" ####################  ATE AQUI TA OK  #################### \n") ###
     ###########################################################################
 
 
@@ -104,5 +104,39 @@ if __name__ == "__main__":
 
     print(f'\n{play1}')
     print(f'\n{play2}')
-    ######################################################
+######################################################################################
 
+
+def mostrarMenu():
+    escolha = True
+    while escolha != 0 :
+        print("\n\n- - - - - MENU - - - - -")
+        print("\n [1] Iniciar partida")
+        print(" [2] Escolher nome do Jogador")
+        print(" [3] Informações")
+        print(" [0] Sair")
+
+        escolha = int(input("\nInforme o número da operação desejada: "))
+        print("- - - - - - - - - - - - - - - - - - -")
+        if escolha == 1:
+            print("\npressionou 1 - INICIAR PARTIDA")
+            iniciarJogo()
+        elif escolha == 2:
+            print("pressionou 2")
+            play1.setNome(input("\nInforme o nome do Jogador 1: "))
+            play2.setNome(input("Informe o nome do Jogador 2: "))
+            print("\nNOMES SALVOS COM SUCESSO!!! Pronto para iniciar o jogo? ")
+        elif escolha == 3:
+            print("pressionou 3")
+        elif escolha == 0:
+            print("Fim do Jogo. Bye!\n")
+        else:
+            print("\n:/ Ops! Digite uma operação válida. ;)")
+
+
+########################## P R I N C I P A L ##########################
+
+if __name__ == "__main__":
+
+    print("\n JOGO BATALHA DE CARTAS ")
+    mostrarMenu()
