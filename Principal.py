@@ -9,6 +9,7 @@ from PilhaEncadeada import Pilha
 from Jogador import Jogador
 from Batalha import Batalha
 
+MAX_JOGADAS = 26
 
 # Definindo os 2 Jogadores
 play1 = Jogador("Player 1")
@@ -36,7 +37,7 @@ def revelarCampeao():
 
         Não requer parâmetros.
 
-        Retorna uma String formatada com o nome do jogador que venceu 
+        Retorna uma String formatada com o nome do jogador que venceu
         ou informa se houve empate.
     """
     if ( play1.getTotalDeCartas() > play2.getTotalDeCartas() ):
@@ -55,8 +56,8 @@ def iniciarJogo():
 
         Não tem retorno.
 
-        Cria a "mesa" do jogo. 
-        
+        Cria a "mesa" do jogo.
+
         É responsável por inicializar e começar a batalha.
 
         Possui uma função especial aninhada: __cmp__(self, other)
@@ -95,7 +96,7 @@ def iniciarJogo():
 
     # Se passar de 26 vai mostrar a exceção de pilha vazia
     ######################################################
-    for cont in range(5):
+    for cont in range(MAX_JOGADAS):
         batalha1.setRodada(cont + 1)
         print(f'\n- - - - - - - - - - - - - - - RODADA {batalha1.getRodada()}: - - - - - - - - - - - - - - -\n')
 
@@ -171,7 +172,7 @@ def iniciarJogo():
     print(f'\nTotal final: {play1.getTotalDeCartas()} cartas com {play1.getNome()}')
     print(f'\nTotal final: {play2.getTotalDeCartas()} cartas com {play2.getNome()}')
 
-    print("\n\nINFORME UM NÚMERO SE DESEJAR JOGAR NOVAMENTE.")
+    print("\n\nINFORME A OPERAÇÃO SE DESEJAR JOGAR NOVAMENTE.")
 ######################################################################################
 
 
@@ -179,7 +180,7 @@ def iniciarJogo():
 #DÁ A EXCEÇÃO DE PILHA VAZIA
 def mostrarMenu():
     """Função que exibe o menu com as opções disponíveis e faz as chamadas correspondentes.
-    
+
     Essa função não tem retorno e não espera parâmetros.
 
     Variáveis:
