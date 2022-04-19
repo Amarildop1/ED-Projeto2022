@@ -1,7 +1,7 @@
-#### Projeto 01 de Estrutura de Dados usando Python
+### Projeto 01 de Estrutura de Dados usando Python
 <br>
 
-##### Resumo do Problema:
+#### Resumo do Problema:
 
 - Baralho tradicional de 52 cartas
 - Divide-se as cartas do baralho, igualmente, para dois jogadores. 
@@ -23,7 +23,7 @@
 --------
 
 
-##### 1. O Problema:
+#### 1. O Problema:
 
 Considere o exercício da modelagem e codificação de um baralho tradicional de 52 cartas. Neste exercício, você deverá implementar um jogo simples que utiliza as cartas de um baralho chamado “Batalha”.
 
@@ -32,12 +32,12 @@ Então, aquele que apresentar a carta de maior valor, vence a batalha e recebe a
 No caso de cada jogador apresentar a mesma carta, elas ficam bloqueadas e outro par de cartas é puxado. Ganha o total de cartas acumuladas o jogador que desempatar a batalha.
 
 
-##### 2. Simulação:
+#### 2. Simulação:
 
 Para fins de correção, a equipe deve exibir uma interface que apresente o passo-a-passo das batalhas (com pausa entre as jogadas para se ter maior controle) e permita acompanhar o que está acontecendo em cada jogada. A simulação mais clara e precisa alcançará a pontuação máxima definida para esse critério de correção.
 
 
-##### 3. Requisitos Funcionais:
+#### 3. Requisitos Funcionais:
 
 A implementação desta atividade de avaliação deve levar em conta o atendimento aos seguintes requisitos funcionais:
 
@@ -48,7 +48,7 @@ embaralhadas antes da distribuição. [10 pontos]
 * Permitir que ao término do jogo, o usuário decida se quer jogar novamente ou encerrar o programa. Se for jogar novamente [20 pontos]
 
 
-##### 4. Requisitos não-funcionais:
+#### 4. Requisitos não-funcionais:
 
 A implementação deste projeto deve levar em conta o atendimento aos seguintes requisitos
 não-funcionais:
@@ -65,7 +65,7 @@ pontos]
 * Apresentação de dados de forma organizada, na tela; O não atendimento a estes requisitos não-funcionais implicará em um redutor na nota.
 
 
-##### 5. Informações Importantes:
+#### 5. Informações Importantes:
 
 Uma má estrutura do programa, logo no início, prejudicará potencialmente o desenvolvimento do código. Contate o monitor ou professor para direcionar adequadamente a codificação do seu projeto. Não haverá a menor possibilidade do aluno não ter assistência para desenvolver o projeto.
 Lógica e/ou operações copiadas serão anuladas em todas as cópias, independente de quem fez e quem copiou.
