@@ -1,6 +1,24 @@
 from PilhaEncadeada import Pilha
 
 class Jogador:
+    """ Classe que representa um Jogador.
+
+        Métodos:
+
+        getQtdeCartasNaMao(self):
+            Retorna a quantidade de cartas na mão do jogador.
+
+        getTotalDeCartas(self):
+            Retorna a quantidade total de cartas do jogador, considerando as que ele ganhou.
+        
+        puxarCarta(self):
+            Retorna a carta puxada pelo jogador.
+        receberCartas(self, carta):
+            Adiciona as cartas em uma pilha do jogador.
+
+        conquistouUmaCarta(self, carta):
+            Adiciona cartas recebidas após ganhar uma rodada.
+    """
     cartasNaMao = 0
     totalDeCartas = 0
 
@@ -26,6 +44,7 @@ class Jogador:
 
 
     def puxarCarta(self):
+        """  Retorna a carta puxada pelo jogador. """
         puxou = self.pilhaPlayer.desempilha()
         self.cartasNaMao -= 1
         self.totalDeCartas -= 1
@@ -33,12 +52,14 @@ class Jogador:
 
 
     def receberCartas(self, carta):
+        """ Adiciona as cartas em uma pilha do jogador. """
         self.pilhaPlayer.empilha(carta)
         self.cartasNaMao += 1
         self.totalDeCartas += 1
 
 
     def conquistouUmaCarta(self, carta):
+        """ Adiciona cartas recebidas após ganhar de outro jogador. """
         self.pilhaDeCartasConquistadas.empilha(carta)
         self.totalDeCartas += 1
 

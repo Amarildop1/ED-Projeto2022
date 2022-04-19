@@ -23,6 +23,17 @@ class Node:
 
 
 class Pilha:
+    """ Classe que representa uma estrutura de dados do tipo Pilha.
+
+        Métodos:
+
+        empilha(self, valor):
+            Usado para empilhar um valor na pilha.
+
+        desempilha(self):
+            Usado para desempilhar um valor da pilha.
+    """
+
     def __init__(self):
         self.__head = None
         self.__tamanho = 0
@@ -67,6 +78,10 @@ class Pilha:
         
 
     def empilha(self, valor):
+        """ Método usado para empilhar um valor na pilha.
+
+            Recebe um valor como parâmetro.
+        """
         novo = Node(valor)
         novo.prox = self.__head
         self.__head = novo
@@ -74,6 +89,12 @@ class Pilha:
 
 
     def desempilha(self):
+        """ Método usado para desempilhar um valor da pilha.
+
+            Retorna o valor desempilhado.
+
+            Pode lançar exceção do tipo PilhaException
+        """
         if not self.estaVazia():
             dado = self.__head.dado
             self.__head = self.__head.prox

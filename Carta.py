@@ -1,4 +1,13 @@
 class Carta:
+    """ Classe que representa uma carta de baralho
+
+        Atributos:
+            numero
+
+            naipe
+
+            cor
+    """
 
     def __init__(self, numero, naipe, cor):
         self.__numero = numero

@@ -8,7 +8,7 @@ class BaralhoException(Exception):
 
 class Baralho:
     """ Classe que representa um baralho.
-    
+
         Utiliza objetos do tipo Carta:
             Com naipe, cor e numeração.
 
