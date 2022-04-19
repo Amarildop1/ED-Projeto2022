@@ -6,7 +6,6 @@ class Batalha:
     p = Pilha()
     baralho1 = Baralho()
     baralho1.embaralhar()
-
     cartasBloqueadasPeloEmpate = Pilha()
 
     def __init__(self):

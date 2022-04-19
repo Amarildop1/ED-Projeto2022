@@ -52,7 +52,7 @@ class Baralho:
             removido = baralho1.retirarCarta()
             p.empilha(removido)
 
-        print(p.imprime()) #com esse método exibe None | só com p exibe sem o None
+        print(p.imprime())
         print(p.tamanho())
     
      """

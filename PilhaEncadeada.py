@@ -72,16 +72,6 @@ class Pilha:
         self.__head = novo
         self.__tamanho += 1
 
-    ############### TESTANDO ADICIONA NA BASE ###############
-
-    def adicionaNaBase(self, valor):
-        novo = Node(valor)
-        novo.prox = self.__head
-        self.__head = novo
-        self.__tamanho += 1
-
-    #########################################################
-
 
     def desempilha(self):
         if not self.estaVazia():

@@ -12,7 +12,7 @@ class Jogador:
 
     def getNome(self):
         return self.__nome
-    
+
     def setNome(self, novoNome):
         self.__nome = novoNome
 
