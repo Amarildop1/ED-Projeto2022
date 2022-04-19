@@ -7,6 +7,23 @@ class BaralhoException(Exception):
 
 
 class Baralho:
+    """ Classe que representa um baralho.
+    
+        Utiliza objetos do tipo Carta:
+            Com naipe, cor e numeração.
+
+        Métodos:
+
+        temCarta(self):
+            Retorna True ou False em caso de conter cartas ou não.
+
+        retirarCarta(self) -> Carta:
+            Retorna uma carta retirada do baralho.
+
+        embaralhar(self):
+            Usado para embaralhar o baralho.
+    """
+
     def __init__(self):
         self.baralho = list()
         naipe = ["Ouro",    "Espada","Paus","Copas"]
@@ -23,6 +40,10 @@ class Baralho:
 
 
     def temCarta(self):
+        """ Método que verifica se há cartas no Baralho.
+
+            Retorna True ou False.
+        """
         if len(self.baralho) > 0:
             return True
         else:
@@ -30,6 +51,14 @@ class Baralho:
 
 
     def retirarCarta(self)->Carta:
+        """ Método para retirar carta do baralho.
+
+            Retorna a carta retirada.
+                Retorno do tipo Carta.
+
+            Exceção que pode gerar:
+                IndexError
+        """
         try:
             return self.baralho.pop()
         except IndexError :
@@ -37,25 +66,14 @@ class Baralho:
 
 
     def embaralhar(self):
+        """ Método para embaralhar um baralho comum
+
+            Retorna o baralho com as cartas embaralhadas.
+
+            Faz uso de um método do módulo random.
+        """
         embaralhado = random.shuffle(self.baralho)
         return embaralhado
-
-    """ Para ficar confome o item 2 dos requisitos não-funcionais:
-        O código abaixo dentro de um método deve servir pra o requisito.
-        O retorno pode ser a pilha pra usar lá em Batalha.py 
-
-        p = Pilha()
-        print("Pilha Geral com o baralho: \n")
-
-        #Empilha as 52 cartas em p que é a pilha geral
-        for i in range(52):
-            removido = baralho1.retirarCarta()
-            p.empilha(removido)
-
-        print(p.imprime())
-        print(p.tamanho())
-    
-     """
 
 
     def __str__(self):

@@ -11,14 +11,14 @@ class Batalha:
 
         Métodos:
 
-        distribuirCartas(self, jogador): 
+        distribuirCartas(self, jogador):
             Faz a distribuição de cartas para um Jogador.
-        imprimirTotalDeCartas(self): 
+        imprimirTotalDeCartas(self):
             Retorna o total de cartas de um Jogador.
-        imprimirCartasBloqueadas(self): 
-            Retorna as cartas bloqueadas pelo empate
-        distribuirCartasBloqueadas(self, jogador): 
-            Faz a distribuição das cartas bloqueadas
+        imprimirCartasBloqueadas(self):
+            Retorna as cartas bloqueadas pelo empate.
+        distribuirCartasBloqueadas(self, jogador):
+            Faz a distribuição das cartas bloqueadas.
     """
     p = Pilha()
     baralho1 = Baralho()
