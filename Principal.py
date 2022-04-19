@@ -84,40 +84,38 @@ def iniciarJogo():
     batalha1.distribuirCartas(play2)
 
 
+    # Exibindo as cartas já embaralhadas e recebidas pelos jogadores (Mão de Carta)
     print(f'\n{play1}')
     print(" . . . . . . . . . . . . . . . . . . . . ")
     print(f'\n{play2}')
 
 
-    ###########################################################################
     #print(" ####################  ATE AQUI TA OK  #################### \n") ###
-    ###########################################################################
 
 
-    # Se passar de 26 vai mostrar a exceção de pilha vazia
-    ######################################################
+    # O MAX_JOGADAS são 26. Após isso finaliza o jogo e mostra o campeão.
     for cont in range(MAX_JOGADAS):
         batalha1.setRodada(cont + 1)
         print(f'\n- - - - - - - - - - - - - - - RODADA {batalha1.getRodada()}: - - - - - - - - - - - - - - -\n')
 
         # Mostrando a quantidade de cartas na mão do jogador
         print(f'Cartas na mao de {play1.getNome()}: {play1.getQtdeCartasNaMao()}   xXx   Cartas na mao de {play2.getNome()}: {play2.getQtdeCartasNaMao()}')
-        #print(f'Cartas na mao de play2: {play2.getQtdeCartasNaMao()}')
+
 
         # Play1 e Play2 retiram as cartas
         play1Retirou = play1.puxarCarta()
         play2Retirou = play2.puxarCarta()
+
+        # Exibindo as cartas retiradas por play1 e play2
         print(f'\n{play1.getNome()} tirou: {play1Retirou}   vs   {play2.getNome()} tirou: {play2Retirou}')
 
-
         mesa = Pilha()
+
+        # Jogando, na mesa, as cartas retiradas por play1 e play2
         mesa.empilha(play1Retirou)
         mesa.empilha(play2Retirou)
-        #print(f'Cartas na mesa: {mesa}')
 
-
-        #AINDA NÃO ESTÁ CERTO
-        #AS VITÓRIAS NÃO ESTÃO SEMPRE OK
+        # Comparando as cartas e determinando quem recebe as da mesa
         def __cmp__(self, other):
             """ Função que faz a comparação das cartas.
 
@@ -129,6 +127,7 @@ def iniciarJogo():
 
                 Determina quem venceu cada rodada com base em uma regra escolhida.
             """
+            # self representa play1 que é o primeiro argumento passado na chamada
             if( self.getNumero() > other.getNumero() ):
                 play1.conquistouUmaCarta(mesa.desempilha())
                 play1.conquistouUmaCarta(mesa.desempilha())
@@ -151,9 +150,12 @@ def iniciarJogo():
             # ASSIM QUE ALGUM PLAYER LANÇAR UMA CARTA E DESEMPATAR,
             # ELE RECEBERÁ AS CARTAS BLOQUEADAS.
 
+
+        # Chamada do método que compara as cartas retiradas e a impressão do resultado.
         print(__cmp__(play1Retirou, play2Retirou))
 
-        # Só vai exibir essa pilha se não estiver vazia.
+
+        # Para exibir essa pilha só se não estiver vazia.
         if not batalha1.cartasBloqueadasPeloEmpate.estaVazia():
             print(f'Cartas Bloqueadas por empate: {batalha1.imprimirCartasBloqueadas()}\n')
 
@@ -167,17 +169,16 @@ def iniciarJogo():
 
 
     # EXIBINDO O CAMPEÃO
-    print(f'\t \o/  {revelarCampeao()}  \o/ \n')
+    print(f'\t\o/ \o/  {revelarCampeao()}  \o/ \o/ \n')
 
-    print(f'\nTotal final: {play1.getTotalDeCartas()} cartas com {play1.getNome()}')
-    print(f'\nTotal final: {play2.getTotalDeCartas()} cartas com {play2.getNome()}')
+    print(f'\n\tFinal: {play1.getTotalDeCartas()} cartas com {play1.getNome()}')
+    print(f'\n\tFinal: {play2.getTotalDeCartas()} cartas com {play2.getNome()}')
 
-    print("\n\nINFORME A OPERAÇÃO SE DESEJAR JOGAR NOVAMENTE.")
-######################################################################################
+    #print("\n\nINFORME A OPERAÇÃO SE DESEJAR JOGAR NOVAMENTE.")
+
+# FINAL DA FUNÇÃO INICIAR JOGO #######################################################
 
 
-#SE APÓS UM VENCEDOR, SE O USER ESCOLHER 1 PARA INICIAR OUTRA PARTIDA, A PILHA ESTARÁ VAZIA
-#DÁ A EXCEÇÃO DE PILHA VAZIA
 def mostrarMenu():
     """Função que exibe o menu com as opções disponíveis e faz as chamadas correspondentes.
 
@@ -215,7 +216,9 @@ def mostrarMenu():
             else:
                 print("\n\n:/ Ops! Digite um número de operação válido. ;)")
         except ValueError:
-            print("\n\nINFORME UM NÚMERO INTEIRO E VÁLIDO DISPONÍVEL NO MENU <-----")
+            print("\n\nINFORME UM NÚMERO INTEIRO E VÁLIDO DISPONÍVEL NO MENU <---")
+
+# FINAL DA FUNÇÃO MOSTRAR MENU #######################################################
 
 
 
@@ -224,3 +227,4 @@ if __name__ == "__main__":
 
     print("\n # # # # # # # # # # JOGO BATALHA DE CARTAS # # # # # # # # # #")
     mostrarMenu()
+

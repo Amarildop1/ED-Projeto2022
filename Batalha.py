@@ -20,6 +20,7 @@ class Batalha:
         distribuirCartasBloqueadas(self, jogador):
             Faz a distribuição das cartas bloqueadas.
     """
+
     p = Pilha()
     baralho1 = Baralho()
     baralho1.embaralhar()
@@ -40,7 +41,6 @@ class Batalha:
         p.empilha(removido)
 
 
-    #receberCartas 26 vezes cada play
     def distribuirCartas(self, jogador):
         """ Método para distribuir 26 cartas para o jogador.
 
@@ -57,6 +57,7 @@ class Batalha:
 
     # Retorna o total de cartas com base no tamanho da pilha p
     def imprimirTotalDeCartas(self):
+        """ Retorna o total de cartas da batalha """
         return f'{self.p.tamanho()}'
 
 
@@ -81,3 +82,4 @@ class Batalha:
     def __str__(self):
         """ Retorna um número inteiro que representa a rodada atual. """
         return f'Rodada: {self.getRodada()}\n'
+

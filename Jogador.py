@@ -10,7 +10,7 @@ class Jogador:
 
         getTotalDeCartas(self):
             Retorna a quantidade total de cartas do jogador, considerando as que ele ganhou.
-        
+
         puxarCarta(self):
             Retorna a carta puxada pelo jogador.
         receberCartas(self, carta):
@@ -19,6 +19,7 @@ class Jogador:
         conquistouUmaCarta(self, carta):
             Adiciona cartas recebidas após ganhar uma rodada.
     """
+
     cartasNaMao = 0
     totalDeCartas = 0
 
@@ -32,7 +33,8 @@ class Jogador:
         return self.__nome
 
     def setNome(self, novoNome):
-        self.__nome = novoNome
+        if novoNome != "":
+            self.__nome = novoNome
 
 
     def getQtdeCartasNaMao(self):
@@ -40,6 +42,7 @@ class Jogador:
 
 
     def getTotalDeCartas(self):
+        """ Retorna a quantidade total de cartas do jogador, considerando as que ele ganhou. """
         return self.totalDeCartas
 
 
@@ -70,3 +73,4 @@ class Jogador:
 
     def __str__(self):
         return f'Jogador: {self.getNome()} \nTotal de cartas: {self.getTotalDeCartas()}\n\nCartas na Mao: \n{self.pilhaPlayer}\n \nCartas conquistadas: {self.pilhaDeCartasConquistadas}\n'
+

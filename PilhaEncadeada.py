@@ -121,7 +121,7 @@ class Pilha:
         s += ']'
         return s
 
- 
+
 
 # Programa para testar
 if __name__ == '__main__':
@@ -137,5 +137,4 @@ if __name__ == '__main__':
     while( not p.estaVazia()):
         print(p.desempilha())
         p.imprime()
-    
 
